@@ -7,13 +7,13 @@ set (CMAKE_CXX_STANDARD 11)
 
 project(OGLE)
 
-add_executable(OGLE src/main.cpp external_includes/glad/src/glad.c src/fileLoader.cpp)
+add_executable(OGLE src/main.cpp external_includes/glad/src/glad.c src/fileLoader.cpp src/shader.cpp src/gameObject.cpp)
 
-include_directories(external_includes/glfw-3.3.4/include include external_includes/glad/include)
+include_directories(external_includes/glfw-3.3.4/include include external_includes/glad/include external_includes/glm)
 
 add_subdirectory(external_includes/glfw-3.3.4)
 #find_package(glfw3 3.3 REQUIRED)
 
 target_link_libraries(OGLE glfw ${CMAKE_DL_LIBS})
 
-file(COPY shaders DESTINATION shaders)
+file(COPY shaders DESTINATION .)
